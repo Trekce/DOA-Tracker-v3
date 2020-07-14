@@ -69,14 +69,13 @@ namespace DOA_Tracker_v3
         }
 
         //Home Screen Buttons////////////////////
-        private void btnOpenRepair_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(1);
-        }
-        private void btnOpenInquiry_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(2);
-        }
+        private void btnOpenRepair_Click(object sender, EventArgs e)        => tabControl1.SelectTab(1);
+        private void btnOpenInquiry_Click(object sender, EventArgs e)       => tabControl1.SelectTab(2);
+        private void btnOpenInventory_Click(object sender, EventArgs e)     => tabControl1.SelectTab(3);
+        private void btnOpenRepInq_Click(object sender, EventArgs e)        => tabControl1.SelectTab(4);
+        private void btnOpenInvInquiry_Click(object sender, EventArgs e)    => tabControl1.SelectTab(5);
+        private void btnOpenDatabase_Click(object sender, EventArgs e)      => Process.Start(Statics.dirDatabaseFile);
+        private void btnClose_Click(object sender, EventArgs e)             => Close();
         private void btnOpenSecureCRT_Click(object sender, EventArgs e)
         {
             Process secureCRT = new Process();
@@ -84,44 +83,15 @@ namespace DOA_Tracker_v3
             secureCRT.StartInfo.Arguments = @"/S WMS ";
             secureCRT.Start();
         }
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        private void btnOpenDatabase_Click(object sender, EventArgs e)
-        {
-            Process.Start(Statics.dirDatabaseFile);
-        }
-        private void btnOpenInventory_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(3);
-        }
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
             
         }
-        private void btnOpenRepInq_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(4);
-        }
-        private void btnOpenInvInquiry_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(5);
-        }
 
         //Home Screen Links//////////////////////
-        private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("Chrome.exe", "https://united.wwt.com/");
-        }
-        private void linkReportal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("Chrome.exe", "https://reportal.apps.wwt.com/");
-        }
-        private void linkDocMan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("Chrome.exe", "https://docman2.apps.wwt.com/");
-        }
+        private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)     => Process.Start("Chrome.exe", "https://united.wwt.com/");
+        private void linkReportal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)   => Process.Start("Chrome.exe", "https://reportal.apps.wwt.com/");
+        private void linkDocMan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://docman2.apps.wwt.com/");
 
         //Repair Screen Buttons//////////////////
         private void btnRepSubmit_Click(object sender, EventArgs e)
@@ -133,14 +103,8 @@ namespace DOA_Tracker_v3
                 clearRepair();
             }
         }
-        private void btnRepClear_Click(object sender, EventArgs e)
-        {
-            clearRepair();
-        }
-        private void btnRepDatabase_Click(object sender, EventArgs e)
-        {
-            Process.Start(Statics.dirDatabaseFile);
-        }
+        private void btnRepClear_Click(object sender, EventArgs e) => clearRepair();
+        private void btnRepDatabase_Click(object sender, EventArgs e) => Process.Start(Statics.dirDatabaseFile);
         private void btnRepHome_Click(object sender, EventArgs e)
         {
             clearRepair();
