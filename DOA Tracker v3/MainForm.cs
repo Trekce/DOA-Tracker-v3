@@ -23,9 +23,12 @@ namespace DOA_Tracker_v3
         public MainForm()
         {
             InitializeComponent();
-            this.tabControl1.Appearance = TabAppearance.FlatButtons;
-            this.tabControl1.ItemSize = new Size(0, 1);
-            this.tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabHome();
+            btnMinimize.Text = "\uD83D\uDDD5";
+            btnExit.Text = "\u274C";
+            //this.tabControl1.Appearance = TabAppearance.FlatButtons;
+            //this.tabControl1.ItemSize = new Size(0, 1);
+            //this.tabControl1.SizeMode = TabSizeMode.Fixed;
         }
 
         //Global Input Fixes/////////////////////
@@ -69,13 +72,16 @@ namespace DOA_Tracker_v3
         }
 
         //Home Screen Buttons////////////////////
-        private void btnOpenRepair_Click(object sender, EventArgs e)        => tabControl1.SelectTab(1);
-        private void btnOpenInquiry_Click(object sender, EventArgs e)       => tabControl1.SelectTab(2);
-        private void btnOpenInventory_Click(object sender, EventArgs e)     => tabControl1.SelectTab(3);
-        private void btnOpenRepInq_Click(object sender, EventArgs e)        => tabControl1.SelectTab(4);
-        private void btnOpenInvInquiry_Click(object sender, EventArgs e)    => tabControl1.SelectTab(5);
-        private void btnOpenDatabase_Click(object sender, EventArgs e)      => Process.Start(Statics.dirDatabaseFile);
-        private void btnClose_Click(object sender, EventArgs e)             => Close();
+        private void btnOpenHome_Click(object sender, EventArgs e) => tabHome();
+        private void btnOpenRepair_Click(object sender, EventArgs e) => tabRep();
+        private void btnOpenRepInq_Click(object sender, EventArgs e) => tabRepInq();
+        private void btnOpenInventory_Click(object sender, EventArgs e) => tabInv();
+        private void btnOpenInvInquiry_Click(object sender, EventArgs e) => tabInvInq();
+        private void btnOpenInquiry_Click(object sender, EventArgs e) => tabInq();
+        private void btnOpenDatabase_Click(object sender, EventArgs e) => Process.Start(Statics.dirDatabaseFile);
+        private void btnClose_Click(object sender, EventArgs e) => Close();
+        private void btnExit_Click(object sender, EventArgs e) => Close();
+        private void btnMinimize_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
         private void btnOpenSecureCRT_Click(object sender, EventArgs e)
         {
             Process secureCRT = new Process();
@@ -89,10 +95,73 @@ namespace DOA_Tracker_v3
         }
 
         //Home Screen Links//////////////////////
-        private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)     => Process.Start("Chrome.exe", "https://united.wwt.com/");
-        private void linkReportal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)   => Process.Start("Chrome.exe", "https://reportal.apps.wwt.com/");
+        private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://united.wwt.com/");
+        private void linkReportal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://reportal.apps.wwt.com/");
         private void linkDocMan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://docman2.apps.wwt.com/");
 
+
+        //Tab Selection Methods//////////////////
+        private void tabHome()
+        {
+            btnOpenHome.BackColor = Color.CadetBlue;
+            btnOpenRepair.BackColor = Color.DarkSlateGray;
+            btnOpenRepInq.BackColor = Color.DarkSlateGray;
+            btnOpenInventory.BackColor = Color.DarkSlateGray;
+            btnOpenInvInquiry.BackColor = Color.DarkSlateGray;
+            btnOpenInquiry.BackColor = Color.DarkSlateGray;
+            tabControl1.SelectTab(0);
+        }
+        private void tabRep()
+        {
+            btnOpenHome.BackColor = Color.DarkSlateGray;
+            btnOpenRepair.BackColor = Color.CadetBlue;
+            btnOpenRepInq.BackColor = Color.DarkSlateGray;
+            btnOpenInventory.BackColor = Color.DarkSlateGray;
+            btnOpenInvInquiry.BackColor = Color.DarkSlateGray;
+            btnOpenInquiry.BackColor = Color.DarkSlateGray;
+            tabControl1.SelectTab(1);
+        }
+        private void tabRepInq()
+        {
+            btnOpenHome.BackColor = Color.DarkSlateGray;
+            btnOpenRepair.BackColor = Color.DarkSlateGray;
+            btnOpenRepInq.BackColor = Color.CadetBlue;
+            btnOpenInventory.BackColor = Color.DarkSlateGray;
+            btnOpenInvInquiry.BackColor = Color.DarkSlateGray;
+            btnOpenInquiry.BackColor = Color.DarkSlateGray;
+            tabControl1.SelectTab(2);
+        }
+        private void tabInv()
+        {
+            btnOpenHome.BackColor = Color.DarkSlateGray;
+            btnOpenRepair.BackColor = Color.DarkSlateGray;
+            btnOpenRepInq.BackColor = Color.DarkSlateGray;
+            btnOpenInventory.BackColor = Color.CadetBlue;
+            btnOpenInvInquiry.BackColor = Color.DarkSlateGray;
+            btnOpenInquiry.BackColor = Color.DarkSlateGray;
+            tabControl1.SelectTab(3);
+        }
+        private void tabInvInq()
+        {
+            btnOpenHome.BackColor = Color.DarkSlateGray;
+            btnOpenRepair.BackColor = Color.DarkSlateGray;
+            btnOpenRepInq.BackColor = Color.DarkSlateGray;
+            btnOpenInventory.BackColor = Color.DarkSlateGray;
+            btnOpenInvInquiry.BackColor = Color.CadetBlue;
+            btnOpenInquiry.BackColor = Color.DarkSlateGray;
+            tabControl1.SelectTab(4);
+        }
+        private void tabInq()
+        {
+            btnOpenHome.BackColor = Color.DarkSlateGray;
+            btnOpenRepair.BackColor = Color.DarkSlateGray;
+            btnOpenRepInq.BackColor = Color.DarkSlateGray;
+            btnOpenInventory.BackColor = Color.DarkSlateGray;
+            btnOpenInvInquiry.BackColor = Color.DarkSlateGray;
+            btnOpenInquiry.BackColor = Color.CadetBlue;
+            tabControl1.SelectTab(5);
+        }
+        
         //Repair Screen Buttons//////////////////
         private void btnRepSubmit_Click(object sender, EventArgs e)
         {
@@ -288,18 +357,9 @@ namespace DOA_Tracker_v3
         }
 
         //Search Screen Buttons//////////////////
-        private void btnSrcSearch_Click(object sender, EventArgs e)
-        {
-            requestInquiry(txtSrcItemNum.Text);
-        }
-        private void btnSrcClear_Click(object sender, EventArgs e)
-        {
-            clearSearch();
-        }
-        private void btnSrcHome_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectTab(0);
-        }
+        private void btnSrcSearch_Click(object sender, EventArgs e)     => requestInquiry(txtSrcItemNum.Text);
+        private void btnSrcClear_Click(object sender, EventArgs e)      => clearSearch();
+        private void btnSrcHome_Click(object sender, EventArgs e)       => tabControl1.SelectTab(0);
 
         //Search Screen Methods//////////////////
         private void requestInquiry(string input)
@@ -491,7 +551,7 @@ namespace DOA_Tracker_v3
                     con.Close();
                 }
             }
-            catch (OleDbException e)
+            catch (OleDbException)
             {
                 Statics.errorMessage.Clear();
                 Statics.errorMessage.Append("Device already located in inventory");
@@ -826,6 +886,23 @@ namespace DOA_Tracker_v3
             txtInvInqSerialNumInput.Clear();
             txtInvInqSerialNumInput.Select();
         }
-        
+
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }
