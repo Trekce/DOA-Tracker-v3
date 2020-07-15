@@ -143,10 +143,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Repair = new MetroFramework.Controls.MetroTabPage();
             this.RepInq = new MetroFramework.Controls.MetroTabPage();
-            this.btnOpenHome = new System.Windows.Forms.Button();
             this.Inventory = new MetroFramework.Controls.MetroTabPage();
             this.InvInq = new MetroFramework.Controls.MetroTabPage();
             this.DevInq = new MetroFramework.Controls.MetroTabPage();
+            this.btnOpenHome = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnMinimize = new MetroFramework.Controls.MetroButton();
             this.btnExit = new MetroFramework.Controls.MetroButton();
@@ -1545,23 +1545,6 @@
             this.RepInq.VerticalScrollbarHighlightOnWheel = false;
             this.RepInq.VerticalScrollbarSize = 10;
             // 
-            // btnOpenHome
-            // 
-            this.btnOpenHome.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnOpenHome.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOpenHome.FlatAppearance.BorderSize = 3;
-            this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenHome.ForeColor = System.Drawing.Color.White;
-            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
-            this.btnOpenHome.Name = "btnOpenHome";
-            this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
-            this.btnOpenHome.TabIndex = 174;
-            this.btnOpenHome.TabStop = false;
-            this.btnOpenHome.Text = "Home";
-            this.btnOpenHome.UseVisualStyleBackColor = false;
-            this.btnOpenHome.Click += new System.EventHandler(this.btnOpenHome_Click);
-            // 
             // Inventory
             // 
             this.Inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -1660,6 +1643,23 @@
             this.DevInq.VerticalScrollbarHighlightOnWheel = false;
             this.DevInq.VerticalScrollbarSize = 10;
             // 
+            // btnOpenHome
+            // 
+            this.btnOpenHome.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnOpenHome.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnOpenHome.FlatAppearance.BorderSize = 3;
+            this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenHome.ForeColor = System.Drawing.Color.White;
+            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
+            this.btnOpenHome.Name = "btnOpenHome";
+            this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
+            this.btnOpenHome.TabIndex = 174;
+            this.btnOpenHome.TabStop = false;
+            this.btnOpenHome.Text = "Home";
+            this.btnOpenHome.UseVisualStyleBackColor = false;
+            this.btnOpenHome.Click += new System.EventHandler(this.btnOpenHome_Click);
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -1682,6 +1682,7 @@
             this.btnMinimize.UseCustomBackColor = true;
             this.btnMinimize.UseCustomForeColor = true;
             this.btnMinimize.UseSelectable = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click_1);
             // 
             // btnExit
             // 
@@ -1694,6 +1695,7 @@
             this.btnExit.UseCustomBackColor = true;
             this.btnExit.UseCustomForeColor = true;
             this.btnExit.UseSelectable = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // MainForm
             // 

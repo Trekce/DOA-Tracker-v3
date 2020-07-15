@@ -81,7 +81,7 @@ namespace DOA_Tracker_v3
         private void btnOpenDatabase_Click(object sender, EventArgs e) => Process.Start(Statics.dirDatabaseFile);
         private void btnClose_Click(object sender, EventArgs e) => Close();
         private void btnExit_Click(object sender, EventArgs e) => Close();
-        private void btnMinimize_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
+        private void btnMinimize_Click_1(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
         private void btnOpenSecureCRT_Click(object sender, EventArgs e)
         {
             Process secureCRT = new Process();
@@ -91,7 +91,7 @@ namespace DOA_Tracker_v3
         }
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
-            
+            Process.Start(Statics.dirExecutable);
         }
 
         //Home Screen Links//////////////////////
@@ -904,5 +904,7 @@ namespace DOA_Tracker_v3
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        
     }
 }
