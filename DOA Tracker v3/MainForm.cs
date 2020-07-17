@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace DOA_Tracker_v3
 {
@@ -89,10 +89,7 @@ namespace DOA_Tracker_v3
             secureCRT.StartInfo.Arguments = @"/S WMS ";
             secureCRT.Start();
         }
-        private void btnExportToExcel_Click(object sender, EventArgs e)
-        {
-            Process.Start(Statics.dirExecutable);
-        }
+        private void btnExportToExcel_Click(object sender, EventArgs e) => Process.Start(Statics.dirExecutable);
 
         //Home Screen Links//////////////////////
         private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://united.wwt.com/");
@@ -290,6 +287,38 @@ namespace DOA_Tracker_v3
         }
         private void appendRepData()
         {
+            using (MySqlConnection con = new MySqlConnection("server=192.168.137.202:3306;database=test01;uid=root;pwd=P34r1 Smudg3!@&"))
+            {
+                try
+                {
+                    con.Open();
+                    string cmdString
+                        = "INSERT INTO " +
+                        "table01 " +
+                        "(dateInsp,dateDOA,devType,itemNum,serialNum,assetNum,failureReason,repairComments,result,marketPrice) " +
+                        "VALUES(@dateInsp,@dateDOA,@devType,@itemNum,@serialNum,@assetNum,@failureReason,@repairComments,@result, @marketPrice)";
+                    MySqlCommand cmd = new MySqlCommand(cmdString);
+                    cmd.Parameters.AddWithValue("@dateInsp", Statics.output[0]);
+                    cmd.Parameters.AddWithValue("@dateDOA", Statics.output[1]);
+                    cmd.Parameters.AddWithValue("@devType", Statics.output[2]);
+                    cmd.Parameters.AddWithValue("@itemNum", Statics.output[3]);
+                    cmd.Parameters.AddWithValue("@serialNum", Statics.output[4]);
+                    cmd.Parameters.AddWithValue("@assetNum", Statics.output[5]);
+                    cmd.Parameters.AddWithValue("@failureReason", Statics.output[6]);
+                    cmd.Parameters.AddWithValue("@repairComments", Statics.output[7]);
+                    cmd.Parameters.AddWithValue("@result", Statics.output[8]);
+                    cmd.Parameters.AddWithValue("@marketPrice", Statics.output[9]);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+            }
+
+
+
             string[] tableName = new string[] { "", "Cumulative Report" };
             using (OleDbConnection con = new OleDbConnection(Statics.connString))
             {
@@ -445,6 +474,7 @@ namespace DOA_Tracker_v3
             txtInvAddSerialNum.Clear();
             txtInvAddAssetNum.Clear();
             txtInvAddComments.Clear();
+            txtInvAddTech.Clear();
             txtInvAddDate.Select();
         }
         private void invClearRem()
@@ -479,6 +509,12 @@ namespace DOA_Tracker_v3
             if (txtInvAddAssetNum.Text.Length == 0)
             {
                 errorList.Add("Asset number cannot be left blank.");
+                check = false;
+                chk++;
+            }
+            if(txtInvAddTech.Text.Length == 0)
+            {
+                errorList.Add("Submitting technician must be specified.");
                 check = false;
                 chk++;
             }
@@ -522,9 +558,10 @@ namespace DOA_Tracker_v3
             Statics.invOutput[2] = txtInvAddSerialNum.Text;
             Statics.invOutput[3] = txtInvAddAssetNum.Text;
             Statics.invOutput[4] = invGetCEQ(txtInvAddItemNum.Text);
-            Statics.invOutput[5] = txtInvAddComments.Text;
-            Statics.invOutput[6] = price;
+            Statics.invOutput[5] = txtInvAddTech.Text;
+            Statics.invOutput[6] = txtInvAddComments.Text;
             Statics.invOutput[7] = price;
+            Statics.invOutput[8] = price;
 
         }
         private void invAppendData()
@@ -536,16 +573,17 @@ namespace DOA_Tracker_v3
                 {
                     con.Open();
                     cmd.CommandText = "Insert into " +
-                        "[Inventory](EntryDate,ItemNumber,SerialNumber,AssetNumber,ATTNum,[Comments],MarketPrice,MarketPrice2) " +
-                        "Values(@date, @itemNum, @serialNum, @assetNum,@ceq, @comments, @price, @price2)";
+                        "[Inventory](EntryDate,ItemNumber,SerialNumber,AssetNumber,ATTNum,Technician,[Comments],MarketPrice,MarketPrice2) " +
+                        "Values(@date, @itemNum, @serialNum, @assetNum,@ceq, @tech, @comments, @price, @price2)";
                     cmd.Parameters.AddWithValue("@date", Statics.invOutput[0]);
                     cmd.Parameters.AddWithValue("@itemNum", Statics.invOutput[1]);
                     cmd.Parameters.AddWithValue("@serialNum", Statics.invOutput[2]);
                     cmd.Parameters.AddWithValue("@assetNum", Statics.invOutput[3]);
                     cmd.Parameters.AddWithValue("@ceq", Statics.invOutput[4]);
-                    cmd.Parameters.AddWithValue("@comments", Statics.invOutput[5]);
-                    cmd.Parameters.AddWithValue("@price", Statics.invOutput[6]);
-                    cmd.Parameters.AddWithValue("@price2", Statics.invOutput[7]);
+                    cmd.Parameters.AddWithValue("@tech", Statics.invOutput[5]);
+                    cmd.Parameters.AddWithValue("@comments", Statics.invOutput[6]);
+                    cmd.Parameters.AddWithValue("@price", Statics.invOutput[7]);
+                    cmd.Parameters.AddWithValue("@price2", Statics.invOutput[8]);
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -904,7 +942,5 @@ namespace DOA_Tracker_v3
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-        
     }
 }

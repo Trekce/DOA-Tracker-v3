@@ -144,6 +144,8 @@
             this.Repair = new MetroFramework.Controls.MetroTabPage();
             this.RepInq = new MetroFramework.Controls.MetroTabPage();
             this.Inventory = new MetroFramework.Controls.MetroTabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txtInvAddTech = new System.Windows.Forms.TextBox();
             this.InvInq = new MetroFramework.Controls.MetroTabPage();
             this.DevInq = new MetroFramework.Controls.MetroTabPage();
             this.btnOpenHome = new System.Windows.Forms.Button();
@@ -351,7 +353,7 @@
             this.btnOpenInvInquiry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInvInquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInvInquiry.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInvInquiry.Location = new System.Drawing.Point(0, 258);
+            this.btnOpenInvInquiry.Location = new System.Drawing.Point(-1, 258);
             this.btnOpenInvInquiry.Name = "btnOpenInvInquiry";
             this.btnOpenInvInquiry.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInvInquiry.TabIndex = 136;
@@ -368,7 +370,7 @@
             this.btnOpenRepInq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenRepInq.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenRepInq.ForeColor = System.Drawing.Color.White;
-            this.btnOpenRepInq.Location = new System.Drawing.Point(0, 142);
+            this.btnOpenRepInq.Location = new System.Drawing.Point(-1, 142);
             this.btnOpenRepInq.Name = "btnOpenRepInq";
             this.btnOpenRepInq.Size = new System.Drawing.Size(100, 60);
             this.btnOpenRepInq.TabIndex = 135;
@@ -385,7 +387,7 @@
             this.btnOpenInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInventory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInventory.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInventory.Location = new System.Drawing.Point(0, 200);
+            this.btnOpenInventory.Location = new System.Drawing.Point(-1, 200);
             this.btnOpenInventory.Name = "btnOpenInventory";
             this.btnOpenInventory.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInventory.TabIndex = 134;
@@ -520,7 +522,7 @@
             this.btnOpenInquiry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInquiry.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInquiry.Location = new System.Drawing.Point(0, 316);
+            this.btnOpenInquiry.Location = new System.Drawing.Point(-1, 316);
             this.btnOpenInquiry.Name = "btnOpenInquiry";
             this.btnOpenInquiry.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInquiry.TabIndex = 2;
@@ -537,7 +539,7 @@
             this.btnOpenRepair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenRepair.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenRepair.ForeColor = System.Drawing.Color.White;
-            this.btnOpenRepair.Location = new System.Drawing.Point(0, 84);
+            this.btnOpenRepair.Location = new System.Drawing.Point(-1, 84);
             this.btnOpenRepair.Name = "btnOpenRepair";
             this.btnOpenRepair.Size = new System.Drawing.Size(100, 60);
             this.btnOpenRepair.TabIndex = 1;
@@ -763,7 +765,7 @@
             this.btnInvRemSubmit.Location = new System.Drawing.Point(112, 301);
             this.btnInvRemSubmit.Name = "btnInvRemSubmit";
             this.btnInvRemSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnInvRemSubmit.TabIndex = 9;
+            this.btnInvRemSubmit.TabIndex = 10;
             this.btnInvRemSubmit.Text = "Submit";
             this.btnInvRemSubmit.UseVisualStyleBackColor = true;
             this.btnInvRemSubmit.Click += new System.EventHandler(this.btnInvRemSubmit_Click);
@@ -809,7 +811,7 @@
             this.txtInvRemSerialNum.Margin = new System.Windows.Forms.Padding(2);
             this.txtInvRemSerialNum.Name = "txtInvRemSerialNum";
             this.txtInvRemSerialNum.Size = new System.Drawing.Size(127, 20);
-            this.txtInvRemSerialNum.TabIndex = 8;
+            this.txtInvRemSerialNum.TabIndex = 9;
             this.txtInvRemSerialNum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enterInputFix_KeyDown);
             // 
             // btnInvClearAddRecord
@@ -818,7 +820,7 @@
             this.btnInvClearAddRecord.Location = new System.Drawing.Point(152, 223);
             this.btnInvClearAddRecord.Name = "btnInvClearAddRecord";
             this.btnInvClearAddRecord.Size = new System.Drawing.Size(75, 23);
-            this.btnInvClearAddRecord.TabIndex = 7;
+            this.btnInvClearAddRecord.TabIndex = 8;
             this.btnInvClearAddRecord.Text = "Clear";
             this.btnInvClearAddRecord.UseVisualStyleBackColor = true;
             this.btnInvClearAddRecord.Click += new System.EventHandler(this.btnInvClearAddRecord_Click);
@@ -829,7 +831,7 @@
             this.btnInvAddSubmit.Location = new System.Drawing.Point(71, 223);
             this.btnInvAddSubmit.Name = "btnInvAddSubmit";
             this.btnInvAddSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnInvAddSubmit.TabIndex = 6;
+            this.btnInvAddSubmit.TabIndex = 7;
             this.btnInvAddSubmit.Text = "Submit";
             this.btnInvAddSubmit.UseVisualStyleBackColor = true;
             this.btnInvAddSubmit.Click += new System.EventHandler(this.btnInvAddSubmit_Click);
@@ -873,7 +875,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(15, 130);
+            this.label13.Location = new System.Drawing.Point(12, 154);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 14);
@@ -904,11 +906,11 @@
             // 
             // txtInvAddComments
             // 
-            this.txtInvAddComments.Location = new System.Drawing.Point(29, 145);
+            this.txtInvAddComments.Location = new System.Drawing.Point(29, 170);
             this.txtInvAddComments.Margin = new System.Windows.Forms.Padding(2);
             this.txtInvAddComments.Name = "txtInvAddComments";
-            this.txtInvAddComments.Size = new System.Drawing.Size(227, 73);
-            this.txtInvAddComments.TabIndex = 5;
+            this.txtInvAddComments.Size = new System.Drawing.Size(227, 48);
+            this.txtInvAddComments.TabIndex = 6;
             this.txtInvAddComments.Text = "";
             this.txtInvAddComments.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enterInputFix_KeyDown);
             // 
@@ -1433,7 +1435,7 @@
             this.tabControl1.Location = new System.Drawing.Point(60, 26);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.SelectedIndex = 3;
             this.tabControl1.Size = new System.Drawing.Size(313, 350);
             this.tabControl1.TabIndex = 173;
             this.tabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1548,6 +1550,8 @@
             // Inventory
             // 
             this.Inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Inventory.Controls.Add(this.label35);
+            this.Inventory.Controls.Add(this.txtInvAddTech);
             this.Inventory.Controls.Add(this.label16);
             this.Inventory.Controls.Add(this.label15);
             this.Inventory.Controls.Add(this.txtInvAddAssetNum);
@@ -1577,6 +1581,27 @@
             this.Inventory.VerticalScrollbarBarColor = true;
             this.Inventory.VerticalScrollbarHighlightOnWheel = false;
             this.Inventory.VerticalScrollbarSize = 10;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Location = new System.Drawing.Point(14, 130);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(65, 14);
+            this.label35.TabIndex = 148;
+            this.label35.Text = "Technician";
+            // 
+            // txtInvAddTech
+            // 
+            this.txtInvAddTech.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtInvAddTech.Location = new System.Drawing.Point(128, 127);
+            this.txtInvAddTech.Margin = new System.Windows.Forms.Padding(2);
+            this.txtInvAddTech.Name = "txtInvAddTech";
+            this.txtInvAddTech.Size = new System.Drawing.Size(127, 20);
+            this.txtInvAddTech.TabIndex = 5;
             // 
             // InvInq
             // 
@@ -1651,7 +1676,7 @@
             this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenHome.ForeColor = System.Drawing.Color.White;
-            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
+            this.btnOpenHome.Location = new System.Drawing.Point(-1, 26);
             this.btnOpenHome.Name = "btnOpenHome";
             this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
             this.btnOpenHome.TabIndex = 174;
@@ -1867,6 +1892,8 @@
         private System.Windows.Forms.Label label27;
         private MetroFramework.Controls.MetroButton btnMinimize;
         private MetroFramework.Controls.MetroButton btnExit;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txtInvAddTech;
     }
 }
 

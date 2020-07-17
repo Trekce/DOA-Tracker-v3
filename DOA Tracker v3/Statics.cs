@@ -33,7 +33,7 @@ namespace DOA_Tracker_v3
         static public List<string> invInqPulledAssets = new List<string>();
         static public List<string> invInqPulledReasons = new List<string>();
         static public List<string> invInqPulledComments = new List<string>();
-        static public string[] invOutput = new string[8];
+        static public string[] invOutput = new string[9];
         static public string[] output = new string[10];
         static public string[] prevOutput1 = new string[5] { "N/A", "N/A", "N/A", "N/A", "N/A" };
         static public string[] prevOutput2 = new string[5] { "N/A", "N/A", "N/A", "N/A", "N/A" };
