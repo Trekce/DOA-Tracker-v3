@@ -175,7 +175,7 @@
             this.cmbRepResult.Location = new System.Drawing.Point(132, 202);
             this.cmbRepResult.Name = "cmbRepResult";
             this.cmbRepResult.Size = new System.Drawing.Size(127, 21);
-            this.cmbRepResult.TabIndex = 9;
+            this.cmbRepResult.TabIndex = 8;
             this.cmbRepResult.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enterInputFix_KeyDown);
             // 
             // RepLblDevType
@@ -228,7 +228,7 @@
             this.txtRepComments.Margin = new System.Windows.Forms.Padding(2);
             this.txtRepComments.Name = "txtRepComments";
             this.txtRepComments.Size = new System.Drawing.Size(127, 60);
-            this.txtRepComments.TabIndex = 8;
+            this.txtRepComments.TabIndex = 9;
             this.txtRepComments.Text = "";
             this.txtRepComments.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enterInputFix_KeyDown);
             // 
@@ -351,7 +351,7 @@
             this.btnOpenInvInquiry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInvInquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInvInquiry.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInvInquiry.Location = new System.Drawing.Point(0, 258);
+            this.btnOpenInvInquiry.Location = new System.Drawing.Point(-1, 258);
             this.btnOpenInvInquiry.Name = "btnOpenInvInquiry";
             this.btnOpenInvInquiry.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInvInquiry.TabIndex = 136;
@@ -368,7 +368,7 @@
             this.btnOpenRepInq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenRepInq.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenRepInq.ForeColor = System.Drawing.Color.White;
-            this.btnOpenRepInq.Location = new System.Drawing.Point(0, 142);
+            this.btnOpenRepInq.Location = new System.Drawing.Point(-1, 142);
             this.btnOpenRepInq.Name = "btnOpenRepInq";
             this.btnOpenRepInq.Size = new System.Drawing.Size(100, 60);
             this.btnOpenRepInq.TabIndex = 135;
@@ -385,7 +385,7 @@
             this.btnOpenInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInventory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInventory.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInventory.Location = new System.Drawing.Point(0, 200);
+            this.btnOpenInventory.Location = new System.Drawing.Point(-1, 200);
             this.btnOpenInventory.Name = "btnOpenInventory";
             this.btnOpenInventory.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInventory.TabIndex = 134;
@@ -520,7 +520,7 @@
             this.btnOpenInquiry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenInquiry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenInquiry.ForeColor = System.Drawing.Color.White;
-            this.btnOpenInquiry.Location = new System.Drawing.Point(0, 316);
+            this.btnOpenInquiry.Location = new System.Drawing.Point(-1, 316);
             this.btnOpenInquiry.Name = "btnOpenInquiry";
             this.btnOpenInquiry.Size = new System.Drawing.Size(100, 60);
             this.btnOpenInquiry.TabIndex = 2;
@@ -537,7 +537,7 @@
             this.btnOpenRepair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenRepair.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenRepair.ForeColor = System.Drawing.Color.White;
-            this.btnOpenRepair.Location = new System.Drawing.Point(0, 84);
+            this.btnOpenRepair.Location = new System.Drawing.Point(-1, 84);
             this.btnOpenRepair.Name = "btnOpenRepair";
             this.btnOpenRepair.Size = new System.Drawing.Size(100, 60);
             this.btnOpenRepair.TabIndex = 1;
@@ -1433,7 +1433,7 @@
             this.tabControl1.Location = new System.Drawing.Point(60, 26);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.SelectedIndex = 1;
             this.tabControl1.Size = new System.Drawing.Size(313, 350);
             this.tabControl1.TabIndex = 173;
             this.tabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -1651,7 +1651,7 @@
             this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenHome.ForeColor = System.Drawing.Color.White;
-            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
+            this.btnOpenHome.Location = new System.Drawing.Point(-1, 26);
             this.btnOpenHome.Name = "btnOpenHome";
             this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
             this.btnOpenHome.TabIndex = 174;
