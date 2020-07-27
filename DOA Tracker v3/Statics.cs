@@ -6,6 +6,7 @@ using System.Security.Permissions;
 using System.Data.OleDb;
 using System.Data;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace DOA_Tracker_v3
 {
@@ -75,24 +76,38 @@ namespace DOA_Tracker_v3
         }
         static public DataTable importItemList()
         {
-            using (OleDbConnection conn = new OleDbConnection())
+            try
             {
-                string path = dirExecutable + @"\Data\MasterItemList.xlsx";
-                DataTable dt = new DataTable();
-                conn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= " + path + ";Extended Properties='Excel 12.0 Xml;HDR=YES;'";
-                using (OleDbCommand comm = new OleDbCommand())
+                using (OleDbConnection conn = new OleDbConnection())
                 {
-                    comm.CommandText = "Select * from [MasterItemList$]";
-                    comm.Connection = conn;
-                    using (OleDbDataAdapter da = new OleDbDataAdapter())
+                    string path = dirExecutable + @"\Data\MasterItemList.xlsx";
+                    DataTable dt = new DataTable();
+                    conn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source= " + path + ";Extended Properties='Excel 12.0 Xml;HDR=YES;'";
+                    using (OleDbCommand comm = new OleDbCommand())
                     {
-                        da.SelectCommand = comm;
-                        da.Fill(dt);
-                        conn.Close();
-                        conn.Dispose();
-                        return dt;
+                        comm.CommandText = "Select * from [MasterItemList$]";
+                        comm.Connection = conn;
+                        using (OleDbDataAdapter da = new OleDbDataAdapter())
+                        {
+                            da.SelectCommand = comm;
+                            da.Fill(dt);
+                            conn.Close();
+                            conn.Dispose();
+                            return dt;
+                        }
                     }
                 }
+            }
+            catch(Exception e)
+            {
+                DialogResult result = MessageBox.Show(@"The item list for market prices was not cloned properly. It is in the Github under " +
+                    "/DOA Tracker v3/Data and should be put into the same folder in the executable directory; The " +
+                    "template DOA.accdb file should be located in there as well. Do you want to view the error log?","File Missing!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+                return null;
             }
         }
     }
