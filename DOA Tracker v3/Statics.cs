@@ -11,6 +11,9 @@ namespace DOA_Tracker_v3
 {
     class Statics
     {
+        static public string userID = "eckertmi";
+        static public string userPW = "Mre2685*";
+        static public string SQLConnString = "Server=75.134.205.21;Database=DOA;Uid=" + Statics.userID + ";Pwd=" + Statics.userPW;
         static public DateTime thisDayTmp = DateTime.Today;
         static public string thisDay = thisDayTmp.ToString("d");
         static public DateTime outInspDate;
@@ -92,6 +95,5 @@ namespace DOA_Tracker_v3
                 }
             }
         }
-        
     }
 }

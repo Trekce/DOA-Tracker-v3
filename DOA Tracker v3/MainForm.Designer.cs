@@ -143,13 +143,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Repair = new MetroFramework.Controls.MetroTabPage();
             this.RepInq = new MetroFramework.Controls.MetroTabPage();
-            this.btnOpenHome = new System.Windows.Forms.Button();
             this.Inventory = new MetroFramework.Controls.MetroTabPage();
             this.InvInq = new MetroFramework.Controls.MetroTabPage();
             this.DevInq = new MetroFramework.Controls.MetroTabPage();
+            this.btnOpenHome = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btnMinimize = new MetroFramework.Controls.MetroButton();
             this.btnExit = new MetroFramework.Controls.MetroButton();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -402,12 +403,13 @@
             this.btnOpenDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenDatabase.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenDatabase.ForeColor = System.Drawing.Color.White;
-            this.btnOpenDatabase.Location = new System.Drawing.Point(68, 69);
+            this.btnOpenDatabase.Location = new System.Drawing.Point(17, 186);
             this.btnOpenDatabase.Name = "btnOpenDatabase";
-            this.btnOpenDatabase.Size = new System.Drawing.Size(128, 45);
+            this.btnOpenDatabase.Size = new System.Drawing.Size(31, 30);
             this.btnOpenDatabase.TabIndex = 1;
             this.btnOpenDatabase.Text = "Open DB";
             this.btnOpenDatabase.UseVisualStyleBackColor = false;
+            this.btnOpenDatabase.Visible = false;
             this.btnOpenDatabase.Click += new System.EventHandler(this.btnOpenDatabase_Click);
             // 
             // btnExportToExcel
@@ -418,12 +420,13 @@
             this.btnExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportToExcel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportToExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExportToExcel.Location = new System.Drawing.Point(68, 120);
+            this.btnExportToExcel.Location = new System.Drawing.Point(17, 222);
             this.btnExportToExcel.Name = "btnExportToExcel";
-            this.btnExportToExcel.Size = new System.Drawing.Size(128, 45);
+            this.btnExportToExcel.Size = new System.Drawing.Size(31, 31);
             this.btnExportToExcel.TabIndex = 2;
             this.btnExportToExcel.Text = "Export to Excel";
             this.btnExportToExcel.UseVisualStyleBackColor = false;
+            this.btnExportToExcel.Visible = false;
             this.btnExportToExcel.Click += new System.EventHandler(this.btnExportToExcel_Click);
             // 
             // groupBox1
@@ -504,7 +507,7 @@
             this.btnOpenSecureCRT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenSecureCRT.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenSecureCRT.ForeColor = System.Drawing.Color.White;
-            this.btnOpenSecureCRT.Location = new System.Drawing.Point(68, 171);
+            this.btnOpenSecureCRT.Location = new System.Drawing.Point(68, 120);
             this.btnOpenSecureCRT.Name = "btnOpenSecureCRT";
             this.btnOpenSecureCRT.Size = new System.Drawing.Size(128, 45);
             this.btnOpenSecureCRT.TabIndex = 3;
@@ -1442,6 +1445,7 @@
             // Home
             // 
             this.Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.Home.Controls.Add(this.btnLogout);
             this.Home.Controls.Add(this.label2);
             this.Home.Controls.Add(this.btnOpenSecureCRT);
             this.Home.Controls.Add(this.btnClose);
@@ -1545,23 +1549,6 @@
             this.RepInq.VerticalScrollbarHighlightOnWheel = false;
             this.RepInq.VerticalScrollbarSize = 10;
             // 
-            // btnOpenHome
-            // 
-            this.btnOpenHome.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnOpenHome.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOpenHome.FlatAppearance.BorderSize = 3;
-            this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenHome.ForeColor = System.Drawing.Color.White;
-            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
-            this.btnOpenHome.Name = "btnOpenHome";
-            this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
-            this.btnOpenHome.TabIndex = 174;
-            this.btnOpenHome.TabStop = false;
-            this.btnOpenHome.Text = "Home";
-            this.btnOpenHome.UseVisualStyleBackColor = false;
-            this.btnOpenHome.Click += new System.EventHandler(this.btnOpenHome_Click);
-            // 
             // Inventory
             // 
             this.Inventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -1660,6 +1647,23 @@
             this.DevInq.VerticalScrollbarHighlightOnWheel = false;
             this.DevInq.VerticalScrollbarSize = 10;
             // 
+            // btnOpenHome
+            // 
+            this.btnOpenHome.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnOpenHome.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnOpenHome.FlatAppearance.BorderSize = 3;
+            this.btnOpenHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenHome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenHome.ForeColor = System.Drawing.Color.White;
+            this.btnOpenHome.Location = new System.Drawing.Point(0, 26);
+            this.btnOpenHome.Name = "btnOpenHome";
+            this.btnOpenHome.Size = new System.Drawing.Size(100, 60);
+            this.btnOpenHome.TabIndex = 174;
+            this.btnOpenHome.TabStop = false;
+            this.btnOpenHome.Text = "Home";
+            this.btnOpenHome.UseVisualStyleBackColor = false;
+            this.btnOpenHome.Click += new System.EventHandler(this.btnOpenHome_Click);
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -1682,6 +1686,7 @@
             this.btnMinimize.UseCustomBackColor = true;
             this.btnMinimize.UseCustomForeColor = true;
             this.btnMinimize.UseSelectable = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click_1);
             // 
             // btnExit
             // 
@@ -1694,6 +1699,23 @@
             this.btnExit.UseCustomBackColor = true;
             this.btnExit.UseCustomForeColor = true;
             this.btnExit.UseSelectable = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatAppearance.BorderSize = 2;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(68, 171);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(128, 45);
+            this.btnLogout.TabIndex = 134;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // MainForm
             // 
@@ -1865,6 +1887,7 @@
         private System.Windows.Forms.Label label27;
         private MetroFramework.Controls.MetroButton btnMinimize;
         private MetroFramework.Controls.MetroButton btnExit;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 

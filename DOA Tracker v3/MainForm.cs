@@ -14,7 +14,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.Sql;
+using MySqlConnector;
 
 namespace DOA_Tracker_v3
 {
@@ -22,6 +23,9 @@ namespace DOA_Tracker_v3
     {
         public MainForm()
         {
+            UserInfo initUserInfo = new UserInfo();
+
+            initUserInfo.ShowDialog(this);
             InitializeComponent();
             tabHome();
             btnMinimize.Text = "\uD83D\uDDD5";
@@ -93,6 +97,11 @@ namespace DOA_Tracker_v3
         {
             
         }
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void btnMinimize_Click_1(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
 
         //Home Screen Links//////////////////////
         private void linkUnited_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => Process.Start("Chrome.exe", "https://united.wwt.com/");
@@ -168,9 +177,20 @@ namespace DOA_Tracker_v3
             if (errorCheck())
             {
                 setOutput();
-                appendRepData();
+                appendRepDataSQL();
                 clearRepair();
             }
+
+
+            //CHANGED TO WORK WITH ERROR FROM SQL SERVER FIX ME AFTER FINISHED///////////////////////////////////////////////////////////////////////////////////
+            //if (errorCheck())
+            //{
+            //    setOutput();
+            //    if (appendRepDataSQL())
+            //    {
+            //        clearRepair();
+            //    }
+            //}
         }
         private void btnRepClear_Click(object sender, EventArgs e) => clearRepair();
         private void btnRepDatabase_Click(object sender, EventArgs e) => Process.Start(Statics.dirDatabaseFile);
@@ -288,6 +308,62 @@ namespace DOA_Tracker_v3
             Statics.output[8] = cmbRepResult.Text;
             Statics.output[9] = Convert.ToString(getPrice(txtRepItemNum.Text));
         }
+        private bool appendRepDataSQL()
+        {
+            string[] tableName = new string[] { "", "CumulativeReport" };
+
+            try
+            {
+                if (cmbRepResult.Text == "Retired")
+                {
+                    tableName[0] = "RetireReport";
+                }
+                else if (cmbRepResult.Text == "Harvested")
+                {
+                    tableName[0] = "HarvestReport";
+                }
+                else if (cmbRepResult.Text == "Backed Out")
+                {
+                    tableName[0] = "BackedOutReport";
+                }
+                else
+                {
+                    tableName[0] = "RepairReport";
+                }
+
+                var con = new MySqlConnection(Statics.SQLConnString);
+                con.Open();
+                foreach (string str in tableName)
+                {
+                    //Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;
+
+                    var cmd = new MySqlCommand("INSERT INTO " +
+                        "DOA." + str + "(DateInspected, TicketDate, DeviceType, ItemNumber, SerialNumber, AssetNumber, FailureReason, RepairComments, Result, MarketPrice) " +
+                        "VALUES(@dateInsp, @dateDOA, @devType, @itemNum, @serialNum, @assetNum, @failureReason, @repairComments, @result, @marketPrice)");
+                    DateTime tmp1 = DateTime.ParseExact(Statics.output[0], "MM/dd/yyyy", null);
+                    DateTime tmp2 = DateTime.ParseExact(Statics.output[1], "MM/dd/yyyy", null);
+                    cmd.Parameters.AddWithValue("@dateInsp", tmp1);
+                    cmd.Parameters.AddWithValue("@dateDOA", tmp2);
+                    cmd.Parameters.AddWithValue("@devType", Statics.output[2]);
+                    cmd.Parameters.AddWithValue("@itemNum", Statics.output[3]);
+                    cmd.Parameters.AddWithValue("@serialNum", Statics.output[4]);
+                    cmd.Parameters.AddWithValue("@assetNum", Statics.output[5]);
+                    cmd.Parameters.AddWithValue("@failureReason", Statics.output[6]);
+                    cmd.Parameters.AddWithValue("@repairComments", Statics.output[7]);
+                    cmd.Parameters.AddWithValue("@result", Statics.output[8]);
+                    cmd.Parameters.AddWithValue("@marketPrice", Statics.output[9]);
+                    cmd.Connection = con;
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return false;
+            }
+            return true;
+        }
         private void appendRepData()
         {
             string[] tableName = new string[] { "", "Cumulative Report" };
@@ -354,6 +430,10 @@ namespace DOA_Tracker_v3
             {
                 return -1;
             }
+        }
+        private void verifyUserNotNull()
+        {
+            
         }
 
         //Search Screen Buttons//////////////////
@@ -903,6 +983,17 @@ namespace DOA_Tracker_v3
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Statics.userID = "";
+            Statics.userPW = "";
+            this.Visible = false;
+            UserInfo initUserInfo = new UserInfo();
+
+            initUserInfo.ShowDialog(this);
+            this.Visible = true;
         }
     }
 }
